@@ -15,6 +15,10 @@ describe("Home page", () => {
     cy.contains(/quitar libro/i).should("not.be.visible");
   });
 
+  it("Info of total books in read list not exists", () => {
+    cy.contains("p", /libros en la lista de lectura/i).should("not.be.visible");
+  });
+
   describe("On add a book to read list", () => {
     beforeEach(() => {
       cy.contains(/añadir libro/i).click();
@@ -29,6 +33,10 @@ describe("Home page", () => {
         .last()
         .contains(/quitar libro/i)
         .should("be.visible");
+    });
+
+    it("Info of total books in read list appear", () => {
+      cy.contains("p", /libros en la lista de lectura/i);
     });
   });
 
