@@ -38,25 +38,31 @@
           id="navbar-default"
         >
           <ul
-            class="absolute right-4 md:right-5 top-20 md:top-8 font-medium flex flex-col pr-2 md:pr-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            class="absolute right-4 md:right-8 top-20 md:top-8 font-medium flex flex-col pr-2 md:pr-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
           >
             <li>
               <router-link
                 exact-active-class="active"
-                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                class="block relative py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 to="/"
                 @click="menuOpen = !menuOpen"
                 >Home</router-link
               >
             </li>
-            <li>
+            <li v-if="$booksStore.totalBooksList">
               <router-link
                 exact-active-class="active"
-                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                class="block relative py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 to="/to-read"
                 @click="menuOpen = !menuOpen"
-                >Lista lectura</router-link
               >
+                Lista lectura
+                <div
+                  class="absolute inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-blue-500 rounded-full top-0 right-0 md:-top-2 md:-right-4"
+                >
+                  {{ $booksStore.totalBooksList }}
+                </div>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -67,7 +73,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { useBooksStore } from "@/stores/BooksStore";
 
+const $booksStore = useBooksStore();
 const menuOpen = ref(false);
 </script>
 
