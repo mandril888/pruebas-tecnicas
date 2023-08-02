@@ -38,7 +38,7 @@
           id="navbar-default"
         >
           <ul
-            class="absolute min-w-[175px] right-4 md:right-0 top-20 md:top-8 font-medium flex flex-col pr-2 md:pr-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            class="absolute right-4 md:right-5 top-20 md:top-8 font-medium flex flex-col pr-2 md:pr-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
           >
             <li>
               <router-link
@@ -56,15 +56,6 @@
                 to="/to-read"
                 @click="menuOpen = !menuOpen"
                 >Lista lectura</router-link
-              >
-            </li>
-            <li>
-              <router-link
-                exact-active-class="active"
-                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                to="/about"
-                @click="menuOpen = !menuOpen"
-                >About</router-link
               >
             </li>
           </ul>
